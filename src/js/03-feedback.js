@@ -28,7 +28,7 @@ function fillInForm() {
     if (savedText) {
         const emailEl = document.querySelector('[type="email"]');
         const textareaEl = document.querySelector('[name="message"]');
-        emailEl.value = savedText.email === true ? savedText.email : "";
+        emailEl.value = savedText.email;
         textareaEl.value = savedText.message;
     }    
 };
