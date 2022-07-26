@@ -14,15 +14,7 @@ function saveVideoTime(event) {
     localStorage.setItem(VIDEOPLAYER_CURRENT_TIME, currentSeconds);
 }
 
-player.setCurrentTime(localStorage.getItem(VIDEOPLAYER_CURRENT_TIME)).then(function(seconds) {
-        seconds = localStorage.getItem(VIDEOPLAYER_CURRENT_TIME);
-}).catch(function(error) {
-    switch (error.name) {
-        case 'RangeError':
-            if (seconds < 0 || seconds > 571.543) { return }
-            break;
-        default:
-            // some other error occurred
-            break;
-    }
-});
+const savedTime = localStorage.getItem(VIDEOPLAYER_CURRENT_TIME);
+if (savedTime !== 'null') {
+    player.setCurrentTime(savedTime);
+}
